@@ -1,7 +1,7 @@
 import './App.css';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Root from './Componenets/Root/Root';
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useMemo, useState, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -18,26 +18,22 @@ const router = createBrowserRouter(
 
 function App() {
     const [mode, setMode] = useState('light');
-    const colorMode = useMemo(
-        () => ({
-        toggleColorMode: () => {
-            setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-        },
-        }),
+
+    const colorMode = useMemo(() => ({
+                toggleColorMode: () => {
+                    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+                }
+            }),
         [],
     );
 
-    const theme = useMemo(
-        () =>
+    const theme = useMemo(() =>
         createTheme({
-            palette: {
-            mode,
-            },
-        }),
+            palette: { mode },},),
         [mode],
     );
 
-  return (
+    return (
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>
                 <div className="App">
