@@ -4181,7 +4181,7 @@ dotenv-expand@^5.1.0:
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-5.1.0.tgz#3fbaf020bfd794884072ea26b1e9791d45a629f0"
   integrity sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==
 
-dotenv@16.0.3, dotenv@^16.0.3:
+dotenv@16.0.3:
   version "16.0.3"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
   integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
@@ -6667,6 +6667,18 @@ locize-cli@^7.14.0:
     tmexchange "2.0.4"
     xliff "6.1.0"
     xlsx "0.18.5"
+
+locize-lastused@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/locize-lastused/-/locize-lastused-3.2.0.tgz#4c7e11258498f51cfc5fc626cc1802a28fce8472"
+  integrity sha512-K0tfwFlPZTK256Xt+DQ+rXlFGhk0eU5PkaDtD2s6hgj4XkmpHvLjGI2iyj9VM444Hl1H5OxFQag0Hpob6Vj2gw==
+  dependencies:
+    cross-fetch "3.1.5"
+
+locize@^2.4.5:
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/locize/-/locize-2.4.5.tgz#66ecdb0e9b807b1d793d6db46b72ce85d80f444e"
+  integrity sha512-05OVfX93y1STOEq8Ef5ewN7IqMcdaC3NxqWkt56liSbxqY+FhitO7NO7gLnB5jnryWmrKO7OMkLgdSIE6uOEVw==
 
 lodash.clonedeep@4.5.0:
   version "4.5.0"

@@ -1,7 +1,8 @@
 import './App.css';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Root from './Componenets/Root/Root';
-import { createContext, useMemo, useState, useEffect } from 'react';
+import { Login } from './Componenets/LoginPage/Login';
+import { createContext, useMemo, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export const ColorModeContext = createContext({ toggleColorMode: () => {} });
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
             <Route path='/' element={ <Root /> }>
                 
             </Route>
+            <Route path='/login' element={ <Login /> } />
         </>
     )
 );

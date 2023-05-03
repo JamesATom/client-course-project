@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { ColorModeContext } from '../../App';
 import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
@@ -14,6 +15,7 @@ import Fade from '@mui/material/Fade';
 import TranslateIcon from '@mui/icons-material/Translate';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 const Header = () => {
     const { t, i18n } = useTranslation();
@@ -29,7 +31,6 @@ const Header = () => {
     const handleClose = (lng) => {
         setAnchorEl(null);
         i18n.changeLanguage(lng);
-        console.log(process.env.REACT_APP_PROJECT_ID, 'HERE');
     }
 
     return (
@@ -37,8 +38,7 @@ const Header = () => {
             <AppBar>
                 <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-                    <IconButton sx={{ gap: '10px' }} disableRipple>
-                        Hello World
+                    <IconButton disableRipple>
                         <ReviewsIcon fontSize='large' />
                     </IconButton>
 
@@ -66,16 +66,23 @@ const Header = () => {
                         <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
                             {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                         </IconButton>
+
+                        <Button 
+                        sx={{ ml: 1  }} 
+                        variant='contained' 
+                        color='success'
+                        LinkComponent={Link} 
+                        to='/login'>Login</Button>
+
                     </Box>
 
                 </Toolbar>
             </AppBar>
+
             <Typography marginTop={20}>
-                {t('greeting')}
+                {t('greeting', "how's everything brother?")}
             </Typography>
-            <Typography>
-                {t('newKey', 'Hello World')}
-            </Typography>
+
         </>
     );
 }
