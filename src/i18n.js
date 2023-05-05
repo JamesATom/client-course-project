@@ -5,9 +5,9 @@ import Backend from 'i18next-locize-backend';
 import LastUsed from 'locize-lastused';
 
 const locizeOptions = {
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  apiKey: process.env.REACT_APP_API_KEY_LOCALIZE, 
-  referenceLng: process.env.REACT_APP_LOCIZE_REFLNG,
+  projectId: '489bdf18-d866-4726-b1e4-4914cb59a84a',
+  apiKey: '783c8248-244d-473c-bf81-c79b71851114', 
+  referenceLng: 'en',
   version: 'latest'
 };
 
