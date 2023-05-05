@@ -31,7 +31,7 @@ const Header = () => {
     const handleClose = (lng) => {
         setAnchorEl(null);
         i18n.changeLanguage(lng);
-        console.log('what a hell: ', process.env.REACT_APP_PROJECT_ID);
+        console.log('what a hell: ', process.env.REACT_APP_PROJECT_ID, 'Process: ', process.env);
     }
 
     return (
