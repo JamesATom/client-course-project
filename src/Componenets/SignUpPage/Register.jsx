@@ -14,10 +14,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-
-export const Login = () => {
-
-
+export const Register = () => {
     return (
         <Paper 
         sx={{ 
@@ -91,7 +88,7 @@ export const Login = () => {
                         </Grid>
 
                         <Grid item xs={12} marginTop={2}>
-                            <Button type='submit' variant='contained' size='medium' fullWidth>Login</Button>
+                            <Button type='submit' variant='contained' size='small' fullWidth>Login</Button>
                         </Grid>
 
                     </form>
@@ -113,5 +110,4 @@ export const Login = () => {
         </Paper>
     );
 }
-
 

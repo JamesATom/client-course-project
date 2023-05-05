@@ -2,6 +2,7 @@ import './App.css';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Root from './Componenets/Root/Root';
 import { Login } from './Componenets/LoginPage/Login';
+import { Register } from './Componenets/SignUpPage/Register';
 import { createContext, useMemo, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
                 
             </Route>
             <Route path='/login' element={ <Login /> } />
+            <Route path='/register' element={ <Register /> } />
         </>
     )
 );
