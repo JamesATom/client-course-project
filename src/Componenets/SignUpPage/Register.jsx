@@ -13,13 +13,14 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Stack from '@mui/material/Stack';
 
 export const Register = () => {
     return (
         <Paper 
         sx={{ 
-            width: '380px', 
-            height: '480px', 
+            width: '400px', 
+            height: '580px', 
             position: 'absolute',
             top: 0,
             bottom: 0,
@@ -46,9 +47,32 @@ export const Register = () => {
                 
                     <form style={{ width: '100%' }}>
 
+                        <Stack direction='row' spacing={2} textAlign='left' marginBottom={3}>
+                            <Grid item>
+                                <FormLabel sx={{ fontSize: '16px' }}>First Name*</FormLabel>
+                                <OutlinedInput
+                                name="name"
+                                type="text"
+                                placeholder="John"
+                                size='small'
+                                fullWidth
+                                disableUnderline />
+                            </Grid>
+                            <Grid item>
+                                <FormLabel sx={{ fontSize: '16px' }}>Last Name*</FormLabel>
+                                <OutlinedInput
+                                name="name"
+                                type="text"
+                                placeholder="Doe"
+                                size='small'
+                                fullWidth
+                                disableUnderline />
+                            </Grid>
+                        </Stack>
+
                         <Grid item xs={12}  sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} rowGap={1} >
                             
-                                <FormLabel sx={{ fontSize: '16px' }}>Email</FormLabel>
+                                <FormLabel sx={{ fontSize: '16px' }}>Email Adresss*</FormLabel>
                                 <OutlinedInput
                                 name="email"
                                 type="email"
@@ -67,7 +91,7 @@ export const Register = () => {
                             marginTop: '20px' }} 
                             rowGap={1}>
                 
-                                <FormLabel sx={{ fontSize: '16px' }}>Password</FormLabel>
+                                <FormLabel sx={{ fontSize: '16px' }}>Password*</FormLabel>
                                 <OutlinedInput
                                 name="password"
                                 type="password"
