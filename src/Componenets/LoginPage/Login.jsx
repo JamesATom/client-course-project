@@ -29,14 +29,12 @@ export const Login = () => {
             left: 0,
             right: 0,
             margin: 'auto',
-            padding: '3%',
+            padding: '30px',
             borderRadius: '10px'
             }} 
             elevation={6}>
 
-            <Grid 
-            container 
-            sx={{ padding: '5px' }}>
+            <Grid container>
 
                     <Grid xs={12}  sx={{ 
                         display: 'flex', 
