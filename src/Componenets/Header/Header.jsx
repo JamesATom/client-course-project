@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { ColorModeContext } from '../../App';
 import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +16,7 @@ import TranslateIcon from '@mui/icons-material/Translate';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 
 const Header = () => {
     const { t, i18n } = useTranslation();
@@ -24,6 +25,18 @@ const Header = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
+    useEffect(() => {
+        axios.get('http://localhost:8000/apiKeys')
+            .then((res) => {
+                if (res.status === 200) {
+                    window.sessionStorage.setItem('projectId', res.data.projectId);
+                    window.sessionStorage.setItem('apiKey', res.data.apiKey);
+                    window.sessionStorage.setItem('refLng', res.data.referenceLng);
+                    window.sessionStorage.setItem('version', res.data.version);
+                }
+        }, networkError => console.log('Network Error: ', networkError));
+    }, []);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     }
@@ -31,7 +44,6 @@ const Header = () => {
     const handleClose = (lng) => {
         setAnchorEl(null);
         i18n.changeLanguage(lng);
-        console.log('what a hell: ', process.env.REACT_APP_PROJECT_ID, 'Process: ', process.env);
     }
 
     return (

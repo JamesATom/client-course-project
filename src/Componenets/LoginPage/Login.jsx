@@ -19,96 +19,106 @@ export const Login = () => {
 
 
     return (
-        <Paper 
-        sx={{ 
-            width: '380px', 
-            height: '480px', 
+        <div style={{ 
+            minWidth: '440px',
+            height: '', 
             position: 'absolute',
             top: 0,
             bottom: 0,
             left: 0,
-            right: 0,
-            margin: 'auto',
-            padding: '30px',
-            borderRadius: '10px'
-            }} 
-            elevation={6}>
+            right: 0
+        }}>
+            <Paper 
+            sx={{ 
+                width: '380px', 
+                height: '480px', 
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                margin: 'auto',
+                padding: '30px',
+                borderRadius: '10px'
+                }} 
+                elevation={6}>
 
-            <Grid container>
+                <Grid container>
 
-                    <Grid xs={12}  sx={{ 
-                        display: 'flex', 
-                        justifyContent: 'space-between', 
-                        alignItems: 'center',
-                        marginBottom: '5%' }}>
-                        <Typography variant='h5'>Login</Typography>
-                        <Typography component={Link} to='/register' color='primary' variant=''>Don&apos;t have an account?</Typography>
-                    </Grid>
-                
-                    <form style={{ width: '100%' }}>
-
-                        <Grid item xs={12}  sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} rowGap={1} >
-                            
-                                <FormLabel sx={{ fontSize: '16px' }}>Email</FormLabel>
-                                <OutlinedInput
-                                name="email"
-                                type="email"
-                                placeholder="johndoe@email.com"
-                                size='small'
-                                fullWidth
-                                disableUnderline />
-                    
-                        </Grid>
-
-                        <Grid item xs={12} 
-                        sx={{ 
+                        <Grid xs={12}  sx={{ 
                             display: 'flex', 
-                            alignItems: 'center', 
-                            flexWrap: 'wrap', 
-                            marginTop: '20px' }} 
-                            rowGap={1}>
+                            justifyContent: 'space-between', 
+                            alignItems: 'center',
+                            marginBottom: '5%' }}>
+                            <Typography variant='h5'>Login</Typography>
+                            <Typography component={Link} to='/register' color='primary' variant=''>Don&apos;t have an account?</Typography>
+                        </Grid>
+                    
+                        <form style={{ width: '100%' }}>
+
+                            <Grid item xs={12}  sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }} rowGap={1} >
+                                
+                                    <FormLabel sx={{ fontSize: '16px' }}>Email</FormLabel>
+                                    <OutlinedInput
+                                    name="email"
+                                    type="email"
+                                    placeholder="johndoe@email.com"
+                                    size='small'
+                                    fullWidth
+                                    disableUnderline />
+                        
+                            </Grid>
+
+                            <Grid item xs={12} 
+                            sx={{ 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                flexWrap: 'wrap', 
+                                marginTop: '20px' }} 
+                                rowGap={1}>
+                    
+                                    <FormLabel sx={{ fontSize: '16px' }}>Password</FormLabel>
+                                    <OutlinedInput
+                                    name="password"
+                                    type="password"
+                                    placeholder="Password"
+                                    size='small'
+                                    fullWidth
+                                    disableUnderline />
+                            
+                            </Grid>
+                            
+                            <Grid item xs={12} marginTop={2}>
+                                <FormGroup>
+                                    <FormControlLabel sx={{ 
+                                        '& .MuiTypography-root': { fontSize: 14 } }} 
+                                        control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }} />} 
+                                        label="Keep me sign in" />
+                                </FormGroup>
+                            </Grid>
+
+                            <Grid item xs={12} marginTop={2}>
+                                <Button type='submit' variant='contained' size='medium' fullWidth>Login</Button>
+                            </Grid>
+
+                        </form>
+                        
+                        
+                            
+                        
+                </Grid>
                 
-                                <FormLabel sx={{ fontSize: '16px' }}>Password</FormLabel>
-                                <OutlinedInput
-                                name="password"
-                                type="password"
-                                placeholder="Password"
-                                size='small'
-                                fullWidth
-                                disableUnderline />
-                        
-                        </Grid>
-                        
-                        <Grid item xs={12} marginTop={2}>
-                            <FormGroup>
-                                <FormControlLabel sx={{ 
-                                    '& .MuiTypography-root': { fontSize: 14 } }} 
-                                    control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }} />} 
-                                    label="Keep me sign in" />
-                            </FormGroup>
-                        </Grid>
+                <Box marginTop={4}>
+                    <Divider>
+                        <Chip variant='filled' color='success' label="Login with" />
+                    </Divider>
+                </Box>
+                <Box marginTop={4}>
+                    <LoginWith />
+                </Box>
 
-                        <Grid item xs={12} marginTop={2}>
-                            <Button type='submit' variant='contained' size='medium' fullWidth>Login</Button>
-                        </Grid>
-
-                    </form>
-                    
-                    
-                        
-                    
-            </Grid>
-            
-            <Box marginTop={4}>
-                <Divider>
-                    <Chip variant='filled' color='success' label="Login with" />
-                </Divider>
-            </Box>
-            <Box marginTop={4}>
-                <LoginWith />
-            </Box>
-
-        </Paper>
+            </Paper>
+        </div>
     );
 }
 

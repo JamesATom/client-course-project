@@ -5,10 +5,10 @@ import Backend from 'i18next-locize-backend';
 import LastUsed from 'locize-lastused';
 
 const locizeOptions = {
-  projectId: '489bdf18-d866-4726-b1e4-4914cb59a84a',
-  apiKey: '783c8248-244d-473c-bf81-c79b71851114', 
-  referenceLng: 'en',
-  version: 'latest'
+    projectId: `${window.sessionStorage.getItem('projectId')}`,
+    apiKey: `${window.sessionStorage.getItem('apiKey')}`,
+    referenceLng: `${window.sessionStorage.getItem('referenceLng')}`,
+    version: `${window.sessionStorage.getItem('version')}`
 };
 
 if (process.env.NODE_ENV != 'production') {
@@ -24,20 +24,12 @@ i18n
         debug: true,
         fallbackLng: 'en',
         saveMissing: true,
-        // keySeparator: false,
-
         interpolation: {
-        escapeValue: false, // not needed for react as it escapes by default
+        escapeValue: false, 
         },
         backend: locizeOptions,
         locizeLastUsed: locizeOptions
 });
 
 export default i18n;
-
-// backend: {
-//     projectId: process.env.REACT_APP_PROJECT_ID,
-//     apiKey: process.env.REACT_APP_API_KEY_LOCALIZE
-// }
-
 
