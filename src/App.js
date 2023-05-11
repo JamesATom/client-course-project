@@ -3,6 +3,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Root from './Componenets/Root/Root';
 import { Login } from './Componenets/LoginPage/Login';
 import { Register } from './Componenets/SignUpPage/Register';
+// import { Register2 } from './Componenets/SignUpPage/Register2';
 import { createContext, useMemo, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 

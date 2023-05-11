@@ -6,6 +6,7 @@ import { useMediaQuery, Button, Stack } from '@mui/material';
 import Google from '../Icons/google.svg';
 import Twitter from '../Icons/twitter.svg';
 import Facebook from '../Icons/facebook.svg';
+import GitHub from '../Icons/github.svg';
 
 // ==============================|| FIREBASE - SOCIAL BUTTON ||============================== //
 
@@ -14,14 +15,14 @@ export const LoginWith = () => {
     const matchDownSM = useMediaQuery(theme.breakpoints.down('sm'));
 
     const googleHandler = async () => {
-        // login || singup
+        window.open('https://server-course-project-production.up.railway.app/login/google', '_self'); 
     };
 
     const twitterHandler = async () => {
         // login || singup
     };
 
-    const facebookHandler = async () => {
+    const gitHubHandler = async () => {
         // login || singup
     };
 
@@ -54,10 +55,10 @@ export const LoginWith = () => {
                 variant="outlined"
                 color="primary"
                 fullWidth={!matchDownSM}
-                startIcon={<img src={Facebook} alt="Facebook" />}
-                onClick={facebookHandler}
+                startIcon={<img src={GitHub} alt="GitHub" />}
+                onClick={gitHubHandler}
             >
-                {!matchDownSM && 'Facebook'}
+                {!matchDownSM && 'GitHub'}
             </Button>
         </Stack>
     );
