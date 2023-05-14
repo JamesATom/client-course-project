@@ -26,7 +26,7 @@ const Header = () => {
     const open = Boolean(anchorEl);
 
     useEffect(() => {
-        axios.get('https://server-course-project-production.up.railway.app/apiKeys')
+        axios.get('http://localhost:3000/apiKeys')
             .then((res) => {
                 if (res.status === 200) {
                     window.sessionStorage.setItem('projectId', res.data.projectId);
