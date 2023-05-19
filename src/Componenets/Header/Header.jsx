@@ -26,7 +26,7 @@ const Header = () => {
     const open = Boolean(anchorEl);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/apiKeys')
+        axios.get('http://localhost:8000/apiKeys')
             .then((res) => {
                 if (res.status === 200) {
                     window.sessionStorage.setItem('projectId', res.data.projectId);
