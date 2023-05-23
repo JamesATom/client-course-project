@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LoginWith } from '../LoginWith/LoginWith';
 import { strengthColor, strengthIndicator } from '../Validation Functions/password-strength';
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
+
+import axios from 'axios';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -17,6 +19,7 @@ import FormControl from '@mui/material/FormControl';
 import Stack from '@mui/material/Stack';
 
 export const Register2 = () => {
+    const navigate = useNavigate();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('sm'));
     const [password, setPassword] = useState();
@@ -24,9 +27,21 @@ export const Register2 = () => {
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [level, setLevel] = useState();
+    const [userAlreadyExist, setUserAlreadyExist] = useState(false);
 
     const handleSubmit = () => {
-
+        axios.post('http://localhost:8000/register', { name, lastname, email, password })
+            .then((res) => {
+                if (res.status === 201) {
+                    setUserAlreadyExist(false);
+                    navigate('/');
+                }
+                return true;
+            }, networkError => console.log('Network Error: ', networkError))
+            .then((finalRes) => {
+                if (finalRes === true)
+                    setUserAlreadyExist(finalRes);
+            });
     }
 
     const handleChangePasswordStrenght = ({target}) => {
@@ -74,7 +89,7 @@ export const Register2 = () => {
                     <Typography variant={ matches ? 'subtitle1' : 'h5' }>
                         Sign up
                     </Typography>
-                    <Typography component={Link} to='/' color='primary' variant=''>Already have an account?</Typography>
+                    <Typography component={Link} to='/login' color='primary' variant=''>Already have an account?</Typography>
                 </Grid>
 
                 <Stack 
@@ -130,6 +145,12 @@ export const Register2 = () => {
                         onChange={({target}) => setEmail(target.value)}
                         fullWidth
                         disableUnderline />
+                        {userAlreadyExist && 
+                        <h2 style={{color: 'red', 
+                                    fontSize: '12px', 
+                                    alignSelf: 'self-start',
+                                    marginLeft: '2px'}}>
+                        Email already exists</h2>}
                 </Grid>
 
                 <Grid
