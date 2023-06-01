@@ -8,22 +8,20 @@ import Twitter from '../Icons/twitter.svg';
 import Facebook from '../Icons/facebook.svg';
 import GitHub from '../Icons/github.svg';
 
-// ==============================|| FIREBASE - SOCIAL BUTTON ||============================== //
-
 export const LoginWith = () => {
     const theme = useTheme();
     const matchDownSM = useMediaQuery(theme.breakpoints.down('sm'));
 
     const googleHandler = async () => {
-        window.open('https://server-course-project-production.up.railway.app/login/google', '_self'); 
+        window.open('http://localhost:8000/auth/google', '_self'); 
     };
 
     const twitterHandler = async () => {
-        // login || singup
+        window.open('http://localhost:8000/auth/twitter', '_self'); 
     };
 
     const gitHubHandler = async () => {
-        // login || singup
+        window.open('http://localhost:8000/auth/github', '_self'); 
     };
 
     return (

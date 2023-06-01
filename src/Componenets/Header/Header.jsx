@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { ColorModeContext } from '../../App';
+import { ColorModeContext } from '../../Contexts';
 import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
