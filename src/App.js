@@ -3,9 +3,9 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Root from './Componenets/Root/Root';
 import { Login } from './Componenets/LoginPage/Login';
 import { Register2 } from './Componenets/SignUpPage/Register2';
-import { useContext, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { ColorModeContext, CurrentUserContext } from './Contexts';
+import { ColorModeContext } from './Contexts';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -21,9 +21,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-    const userObject = useContext(CurrentUserContext);
     const [mode, setMode] = useState('light');
-    console.log('UserObject: ', userObject);
     const colorMode = useMemo(() => ({
                 toggleColorMode: () => {
                     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));

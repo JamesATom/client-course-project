@@ -3,6 +3,8 @@ import { ColorModeContext } from '../../Contexts';
 import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { CurrentUserContext } from '../../Contexts';
+import AccountMenu from '../Extra functionality/Menu';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
@@ -19,6 +21,7 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 
 const Header = () => {
+    const userObject = useContext(CurrentUserContext);
     const { t, i18n } = useTranslation();
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
@@ -55,7 +58,7 @@ const Header = () => {
                         <ReviewsIcon fontSize='large' />
                     </IconButton>
 
-                    <Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <IconButton 
                         id="fade-button" 
                         aria-controls={open ? 'fade-menu' : undefined} 
@@ -76,17 +79,13 @@ const Header = () => {
                             <MenuItem onClick={() => handleClose('ru')}  disabled={i18n.resolvedLanguage === 'ru'}> Russian (RU) </MenuItem>
                         </Menu>
 
-                        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+                        <IconButton sx={{ margin: '0px 20px' }} onClick={colorMode.toggleColorMode} color="inherit">
                             {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                         </IconButton>
 
-                        <Button 
-                        sx={{ ml: 1  }} 
-                        variant='contained' 
-                        color='success'
-                        LinkComponent={Link} 
-                        to='/login'>Login</Button>
-
+                        {userObject == undefined 
+                        ? <Button sx={{ marginLeft: 1 }} variant='contained' color='success' LinkComponent={Link} to='/login'>Login</Button> 
+                        : <AccountMenu />}
                     </Box>
 
                 </Toolbar>
